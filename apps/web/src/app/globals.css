@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light — warm, paper-like coffee palette */
+    --background: 30 40% 98%;
+    --foreground: 25 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 12%;
+    --muted: 30 20% 94%;
+    --muted-foreground: 25 10% 45%;
+    --border: 28 20% 88%;
+    --input: 28 20% 88%;
+    --ring: 25 45% 42%;
+    --primary: 25 45% 34%;
+    --primary-foreground: 30 40% 98%;
+    --secondary: 30 25% 92%;
+    --secondary-foreground: 25 30% 20%;
+    --accent: 32 60% 62%;
+    --accent-foreground: 25 40% 15%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 55% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 48%;
+    --warning-foreground: 30 40% 12%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 25 18% 8%;
+    --foreground: 30 20% 94%;
+    --card: 25 16% 12%;
+    --card-foreground: 30 20% 94%;
+    --muted: 25 14% 17%;
+    --muted-foreground: 30 10% 62%;
+    --border: 25 14% 22%;
+    --input: 25 14% 22%;
+    --ring: 32 55% 55%;
+    --primary: 32 55% 55%;
+    --primary-foreground: 25 30% 10%;
+    --secondary: 25 14% 18%;
+    --secondary-foreground: 30 20% 94%;
+    --accent: 32 50% 45%;
+    --accent-foreground: 30 20% 96%;
+    --destructive: 0 65% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 45% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 85% 55%;
+    --warning-foreground: 25 30% 10%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Prevents the iOS rubber-band effect on the POS terminal. */
+    overscroll-behavior-y: none;
+  }
+
+  /* Numeric columns stay aligned across rows */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-border;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-lg border border-border bg-card text-card-foreground shadow-sm;
+  }
+
+  /* Minimum 44px hit target — required for reliable touch use on a POS tablet. */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .skeleton {
+    @apply animate-pulse-soft rounded-md bg-muted;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  @page {
+    margin: 6mm;
+    size: 80mm auto;
+  }
+}
+
+.print-only {
+  display: none;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Kopi POS",
+  "short_name": "Kopi POS",
+  "description": "Point of sale, inventory and analytics for coffee shops",
+  "start_url": "/pos",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#faf7f4",
+  "theme_color": "#6f4e37",
+  "icons": []
+}
