@@ -3,14 +3,15 @@ const path = require('node:path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
+  output: 'export',
   poweredByHeader: false,
-  // Next 14 expects this under `experimental`; required for standalone output
+  // Next 14 expects this under `experimental`; required for output tracing
   // inside an npm workspace monorepo.
   experimental: {
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   images: {
+    unoptimized: true,
     remotePatterns: [{ protocol: 'https', hostname: '**' }],
   },
   async headers() {

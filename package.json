@@ -25,6 +25,9 @@
     "docker:logs": "docker compose logs -f"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
     "concurrently": "^9.1.0"
   }
 }

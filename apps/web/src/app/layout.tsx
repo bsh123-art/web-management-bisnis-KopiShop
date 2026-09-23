@@ -11,8 +11,14 @@ export const metadata: Metadata = {
   title: { default: APP_NAME, template: `%s · ${APP_NAME}` },
   description: 'Point of sale, inventory and analytics for modern coffee shops.',
   applicationName: APP_NAME,
+  manifest: '/manifest.webmanifest',
   formatDetection: { telephone: false },
   robots: { index: false, follow: false },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: APP_NAME,
+  },
 };
 
 export const viewport: Viewport = {
