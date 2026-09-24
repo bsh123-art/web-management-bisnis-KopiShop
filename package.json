@@ -22,7 +22,10 @@
     "db:studio": "npm run db:studio -w @kopi-pos/api",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
-    "docker:logs": "docker compose logs -f"
+    "docker:logs": "docker compose logs -f",
+    "android:sync": "npm run build -w @kopi-pos/web && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "npm run android:sync && node scripts/build-android.cjs"
   },
   "devDependencies": {
     "@capacitor/android": "^8.5.2",

@@ -6,6 +6,8 @@ import { z } from 'zod';
 dotenv.config({ path: path.resolve(process.cwd(), '../../.env') });
 dotenv.config();
 
+process.env.API_PORT ??= process.env.PORT;
+
 const booleanish = z
   .enum(['true', 'false', '1', '0'])
   .transform((v) => v === 'true' || v === '1');
